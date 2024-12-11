@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Natacha Bezerra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: #333; /* Cor de fundo para tema escuro */
+            color: #f5f5f5; /* Cor do texto para tema escuro */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000; /* Cor do fundo do cabeçalho */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        header .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #f5f5f5; /* Cor do texto para links no tema escuro */
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #ffffff;
+        }
+
+        header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav a:hover::after {
+            background-color: #ffffff;
+        }
+
+        main {
+            text-align: center;
+            padding: 20px;
+        }
+
+        main h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        main p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Seção de Benefícios */
+        .benefits-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #000000; /* Cor de fundo para tema escuro */
+        }
+
+        .benefits-section h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .benefits-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            max-width: 100%;
+        }
+
+        .benefit {
+            background-color: #ffffff; /* Cor de fundo da caixa de benefício */
+            border-radius: 8px;
+            padding: 20px;
+            width: 250px;
+            min-width: 250px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .benefit:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .benefit h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #000000; /* Cor alterada para um tom amarelo, pode mudar para a cor desejada */
+}
+
+.benefit p {
+    font-size: 0.9rem;
+    color: #000000; /* Cor alterada para um tom amarelo, pode mudar para a cor desejada */
+}
+        /* Seção de imagem e texto com imagem à direita */
+        .image-text-section-right {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 20px;
+            background-color: #333; /* Cor de fundo para tema escuro */
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .image-text-section-right .text {
+            width: 60%;
+            margin: 0 10px;
+        }
+
+        .image-text-section-right img {
+            width: 30%;
+            height: auto;
+            border-radius: 8px;
+            margin: 0 20px;
+        }
+
+        .image-text-section-right .text {
+            color: #f5f5f5;
+        }
+
+        .image-text-section-right .text h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .image-text-section-right .text p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Seção de imagem e texto */
+        .image-text-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 20px;
+            background-color: #333; /* Cor de fundo para tema escuro */
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .image-text-section img {
+            width: 30%;
+            height: auto;
+            border-radius: 8px;
+            margin: 0 20px;
+        }
+
+        .image-text-section .text {
+            width: 60%;
+            margin: 0 10px;
+        }
+
+        .image-text-section .text {
+            color: #f5f5f5;
+        }
+
+        .image-text-section .text h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .image-text-section .text p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Pessoa.jpg" alt="Logo">
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Título focado no problema que você resolve</h1>
+        <p>Descreva de forma breve e direta o que é o seu produto, pra quem ele é e o que torna ele tão especial.</p>
+    </main>
+
+    <!-- Seção de Benefícios -->
+    <section class="benefits-section">
+        <h2>Por que a sua solução é melhor do que a atual</h2>
+        <div class="benefits-container">
+            <div class="benefit">
+                <img src="path/to/icon1.png" alt="Ícone 1">
+                <h3>Benefício 1</h3>
+                <p>Qual problema ela resolve? Descreva aqui e tente provar o seu ponto.</p>
+            </div>
+            <div class="benefit">
+                <img src="path/to/icon2.png" alt="Ícone 2">
+                <h3>Benefício 2</h3>
+                <p>Qual problema ela resolve? Descreva aqui e tente provar o seu ponto.</p>
+            </div>
+            <div class="benefit">
+                <img src="path/to/icon3.png" alt="Ícone 3">
+                <h3>Benefício 3</h3>
+                <p>Qual problema ela resolve? Descreva aqui e tente provar o seu ponto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de imagem e texto com imagem à direita -->
+    <section class="image-text-section-right">
+        <div class="text">
+            <h2>Seu Título Atraente</h2>
+            <p>Texto explicativo sobre o produto, serviço ou benefício. Use este espaço para descrever de forma clara e envolvente como o seu produto pode ajudar o público-alvo.</p>
+        </div>
+        <img src="images/ADM TESTE.jpg" alt="Imagem Exemplo">
+    </section>
+
+    <!-- Seção de imagem e texto -->
+    <section class="image-text-section">
+        <img src="images/ADM TESTE.jpg" alt="Imagem Exemplo">
+        <div class="text">
+            <h2>Seu Título Atraente</h2>
+            <p>Texto explicativo sobre o produto, serviço ou benefício. Use este espaço para descrever de forma clara e envolvente como o seu produto pode ajudar o público-alvo.</p>
+        </div>
+    </section>
+</body>
+</html>
