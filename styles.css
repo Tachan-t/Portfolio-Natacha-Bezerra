@@ -238,32 +238,86 @@ main p {
     header {
         flex-direction: column;
         align-items: center;
+        padding: 10px;
     }
 
     header nav {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
+    }
+
+    header nav a {
+        font-size: 1rem;
+        padding: 5px 0;
+    }
+
+    main h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    main p {
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
     .benefits-container {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        justify-content: flex-start; /* Alinhar itens no início */
+        gap: 20px; /* Espaçamento entre os blocos */
+        padding: 20px;
+        overflow-x: auto; /* Adicionar rolagem horizontal */
+        scroll-snap-type: x mandatory; /* Habilitar snapping (encaixe suave) */
+        -webkit-overflow-scrolling: touch; /* Suporte para rolagem suave no iOS */
+    }
+    
+    .benefit {
+        flex: 0 0 auto; /* Garante que os itens não encolham e tenham largura fixa */
+        width: 300px; /* Define a largura fixa de cada bloco */
+        min-width: 300px; /* Largura mínima */
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        scroll-snap-align: start; /* Encaixe suave no início do contêiner */
+        transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .image-text-section, .image-text-section-right {
+    .image-text-section,
+    .image-text-section-right {
         flex-direction: column;
         text-align: center;
+        padding: 20px 10px;
     }
 
-    .image-text-section img, .image-text-section-right img {
-        width: 80%;
-        margin: 20px 0;
+    .image-text-section img,
+    .image-text-section-right img {
+        width: 90%;
+        margin: 10px 0;
     }
 
-    .image-text-section .text, .image-text-section-right .text {
+    .image-text-section .text,
+    .image-text-section-right .text {
         width: 100%;
-        margin: 0;
     }
+
+    .diagram-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .step {
+        width: 90%;
+    }
+
+    footer .btn {
+        width: 90%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
 }
 /* Diagrama Passo a Passo */
 .diagram-section {
@@ -271,19 +325,27 @@ main p {
     padding: 40px 0;
     background-color: #000000; /* Cor de fundo da seção */
 }
-.diagram-section h1 {
+
+.diagram-section h2 {
     font-size: 2.5em; /* Ajuste o tamanho conforme necessário */
     margin-bottom: 20px;
 }
+
 .diagram-container {
     display: flex;
     justify-content: space-around;
-    margin-left: 50px
+    margin-left: 50px;
+
+    /* Adjust layout for smaller screens */
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .step {
     text-align: center;
-    padding: 0px;
+    padding: 20px;
     border: 1px solid #000000;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -299,6 +361,7 @@ main p {
     line-height: 50px;
     margin-bottom: 10px;
 }
+
 .step-image {
     width: 30%;
     height: auto;
@@ -306,12 +369,46 @@ main p {
     margin: 0 60px;
     filter: grayscale(100%) brightness(50%);
     transition: filter 0.3s, transform 0.3s; /* Adicionando transição para transformação */
-  }
-  .step-image:hover {
+
+    /* Adjust image size for smaller screens */
+    @media (max-width: 768px) {
+        width: 80%;
+        margin: 10px 0;
+    }
+}
+
+.step-image:hover {
     filter: grayscale(0%) brightness(100%);
     transform: scale(1.1); /* Faz a imagem crescer ao passar o mouse */
+}
 
-  }
 .step-content {
     text-align: left;
+}
+/* Estilo do botão */
+footer .btn {
+    display: inline-block;
+    background-color: #ffffff; /* Cor de fundo do botão */
+    color: #000000; /* Cor do texto do botão */
+    padding: 15px 30px; /* Tamanho do botão */
+    font-size: 1.2rem; /* Tamanho da fonte */
+    text-decoration: none; /* Remover sublinhado */
+    border-radius: 8px; /* Arredondar as bordas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adicionar sombra */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transição suave */
+}
+
+footer .btn:hover {
+    background-color: #000000; /* Cor de fundo ao passar o mouse */
+    color: #ffffff; /* Cor do texto ao passar o mouse */
+    transform: scale(1.1); /* Leve aumento ao passar o mouse */
+}
+
+/* Centralizar o botão no rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333; /* Cor de fundo do rodapé */
+    border-top: 1px solid #444; /* Linha superior */
+    margin-top: auto; /* Garante que o rodapé fique na parte inferior */
 }
