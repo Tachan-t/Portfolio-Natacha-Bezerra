@@ -192,35 +192,32 @@ main p {
 /* Seção de imagem e texto */
 .image-text-section {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 20px;
+    flex-wrap: nowrap; /* Impede a quebra de linha */
+    gap: 20px; /* Espaçamento entre os itens */
+    padding: 20px;
     background-color: #333;
     margin: 0;
-    overflow: hidden;
+    overflow-x: auto; /* Adicionando rolagem horizontal */
+    scroll-snap-type: x mandatory; /* Habilitar snapping */
+    -webkit-overflow-scrolling: touch; /* Suporte para rolagem suave no iOS */
 }
 
 .image-text-section img {
-    width: 30%;
+    width: 80%; /* Ajusta a imagem para ocupar 80% da largura do container */
     height: auto;
     border-radius: 8px;
-    margin: 0 60px;
     filter: grayscale(100%) brightness(50%);
-    transition: filter 0.3s, transform 0.3s; /* Adicionando transição para transformação */
+    transition: filter 0.3s, transform 0.3s;
 }
 
 .image-text-section img:hover {
     filter: grayscale(0%) brightness(100%);
-    transform: scale(1.1); /* Faz a imagem crescer ao passar o mouse */
-}
-
-.image-text-section .text {
-    width: 90%;
-    margin: 0px 0px;
+    transform: scale(1.1); /* Aumenta a imagem ao passar o mouse */
 }
 
 .image-text-section .text {
     color: #f5f5f5;
+    width: 80%; /* Ajuste da largura do texto */
 }
 
 .image-text-section .text h2 {
@@ -235,6 +232,8 @@ main p {
 
 /* Media Queries para responsividade */
 @media (max-width: 768px) {
+
+
     header {
         flex-direction: column;
         align-items: center;
@@ -242,13 +241,15 @@ main p {
     }
 
     header nav {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        justify-content: space-between; /* Itens lado a lado no mobile */
+        gap: 10px; /* Menor espaçamento entre os itens */
+        width: 100%;
     }
 
     header nav a {
         font-size: 1rem;
-        padding: 5px 0;
+        padding: 5px 10px;
     }
 
     main h1 {
@@ -284,6 +285,7 @@ main p {
         transition: transform 0.3s, box-shadow 0.3s;
     }
 
+
     .image-text-section,
     .image-text-section-right {
         flex-direction: column;
@@ -306,6 +308,7 @@ main p {
         flex-direction: column;
         align-items: center;
         gap: 20px;
+        
     }
 
     .step {
@@ -317,7 +320,6 @@ main p {
         padding: 10px;
         font-size: 1rem;
     }
-}
 }
 /* Diagrama Passo a Passo */
 .diagram-section {
