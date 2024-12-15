@@ -1,96 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Natacha Bezerra</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo CSS -->
+    <title>Portfólio Moderno</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="images/Pessoa.jpg" alt="Logo">
-        </div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Sobre</a>
-            <a href="#">Contato</a>
+    <header id="home">
+        <nav class="navbar">
+            <div class="logo">Minha Logo</div>
+            <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Sobre Mim</a></li>
+                <li><a href="#projects">Projetos</a></li>
+            </ul>
         </nav>
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="Videos/3130182-uhd_3840_2160_30fps.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Olá, sou a Natacha!</h1>
+                <p>Uma administradora apaixonada por criar soluções incríveis para o mundo.</p>
+            </div>
+        </section>
     </header>
 
-    <main>
-        <h1>Título focado no problema que você resolve</h1>
-        <p>Descreva de forma breve e direta o que é o seu produto, pra quem ele é e o que torna ele tão especial.</p>
-    </main>
-
-    <!-- Seção de Benefícios -->
-    <section class="benefits-section">
-        <h2>Por que a sua solução é melhor do que a atual</h2>
-        <div class="benefits-container">
-            <div class="benefit">
-                <img src="images/ADM TESTE.jpg" alt="Ícone 1">
-                <h3>Benefício 1</h3>
-                <p>Qual problema ela resolve? Descreva aqui e tente provar o seu ponto.</p>
-            </div>
-            <div class="benefit">
-                <img src="images/ADM TESTE.jpg" alt="Ícone 2">
-                <h3>Benefício 2</h3>
-                <p>Qual problema ela resolve? Descreva aqui e tente provar o seu ponto.</p>
-            </div>
-            <div class="benefit">
-                <img src="images/ADM TESTE.jpg" alt="Ícone 3">
-                <h3>Benefício 3</h3>
-                <p>Qual problema ela resolve? Descreva aqui e tente provar o seu ponto.</p>
-            </div>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Sobre Mim</h2>
+            <p>Sou um(a) profissional com experiência em [áreas específicas]. Minha missão é desenvolver soluções criativas e impactantes que conectem tecnologia e propósito.</p>
         </div>
     </section>
 
-    <!-- Seção de imagem e texto com imagem à direita -->
-    <section class="image-text-section-right">
-        <div class="text">
-            <h2>Seu Título Atraente</h2>
-            <p>Texto explicativo sobre o produto, serviço ou benefício. Use este espaço para descrever de forma clara e envolvente como o seu produto pode ajudar o público-alvo.</p>
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Meus Projetos</h2>
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="images/projeto1.jpg" alt="Projeto 1">
+                    <h3>Projeto 1</h3>
+                    <p>Descrição breve do Projeto 1.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/projeto2.jpg" alt="Projeto 2">
+                    <h3>Projeto 2</h3>
+                    <p>Descrição breve do Projeto 2.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/projeto3.jpg" alt="Projeto 3">
+                    <h3>Projeto 3</h3>
+                    <p>Descrição breve do Projeto 3.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/projeto3.jpg" alt="Projeto 4">
+                    <h3>Projeto 4</h3>
+                    <p>Descrição breve do Projeto 4.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/projeto3.jpg" alt="Projeto 5">
+                    <h3>Projeto 5</h3>
+                    <p>Descrição breve do Projeto 5.</p>
+                </div>                
+            </div>
         </div>
-        <img src="images/ADM TESTE.jpg" alt="Imagem Exemplo">
     </section>
 
-    <!-- Seção de imagem e texto -->
-    <section class="image-text-section">
-        <img src="images/ADM TESTE.jpg" alt="Imagem Exemplo">
-        <div class="text">
-            <h2>Seu Título Atraente</h2>
-            <p>Texto explicativo sobre o produto, serviço ou benefício. Use este espaço para descrever de forma clara e envolvente como o seu produto pode ajudar o público-alvo.</p>
-        </div>
-    </section>
-    <section class="diagram-section">
-        <h1>Como funciona nossa solução</h1>
-        <div class="diagram-container">
-            <div class="step">
-                <img class="step-image" src="images/ADM TESTE.jpg" alt="Descrição da imagem">
-                <div class="step-content">
-                    <h4>Passo 1</h4>
-                    <p>Descreva o primeiro passo do processo aqui.</p>
-                </div>
-            </div>
-            <div class="step">
-                <img class="step-image" src="images/ADM TESTE.jpg" alt="Descrição da imagem">
-                <div class="step-content">
-                    <h4>Passo 2</h4>
-                    <p>Descreva o segundo passo do processo aqui.</p>
-                </div>
-            </div>
-            <div class="step">
-                <img class="step-image" src="images/ADM TESTE.jpg" alt="Descrição da imagem">
-                <div class="step-content">
-                    <h4>Passo 3</h4>
-                    <p>Descreva o terceiro passo do processo aqui.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Botão no final da página -->
     <footer>
-        <a href="https://wa.me/5511948759558" class="btn" target="_blank">Entre em contato</a>
+        <div class="container">
+            <h2>Contato</h2>
+            <div class="contact-links">
+                <a href="https://github.com" target="_blank">
+                    <img src="images/github-icon.png" alt="GitHub">
+                </a>
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="images/linkedin-icon.png" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+        <p>&copy; 2024 MeuPortfólio. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
