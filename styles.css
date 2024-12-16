@@ -13,19 +13,23 @@ header {
     color: #fff;
     text-align: center;
     padding: 80px 20px;
+    height: 100vh; /* Reverter a altura do header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Ajuste da Navbar */
 .navbar {
     display: flex;
     justify-content: space-between; /* Logo à esquerda e menu à direita */
-    align-items: center;
-    padding: 20px 5%; /* Margem horizontal ajustada */
+    align-items:center;
+    padding: 20px; /* Remover margem horizontal ajustada */
     position: absolute;
-    top: 15;
-    left: 0;
-    width: 90%; /* Garantindo que navbar fique dentro das margens */
-    margin: 0 auto; /* Centraliza horizontalmente */
+    top: 0; /* Ajustar para o topo */
+    left: 100;
+    width: 100%; /* Ajustar a largura para 100% */
     z-index: 10; /* Garante que a navbar fique acima do vídeo */
 }
 
@@ -140,40 +144,120 @@ header {
 
 .carousel {
     display: flex;
-    overflow-x: auto;
+    overflow: hidden;
+    white-space: nowrap;
     gap: 20px;
     padding: 20px;
     
 }
 
-.carousel-item {
+.carousel-item, .experience-card {
+    display: inline-block;
     min-width: 300px;
+    max-width: 300px; /* Define a largura máxima */
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+    overflow: hidden; /* Evita que o conteúdo ultrapasse os limites */
 }
 
-.carousel-item img {
+.carousel-item:hover, .experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item img, .experience-card img {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 15px;
+    filter: grayscale(100%); /* Imagem apagada */
+    transition: filter 0.3s ease; /* Transição suave */
 }
 
-.carousel-item h3 {
+.carousel-item img:hover, .experience-card img:hover {
+    filter: grayscale(0%); /* Cor normal ao passar o mouse */
+}
+
+.carousel-item h3, .experience-card h3 {
     margin: 10px 0;
     font-size: 20px;
+    white-space: normal; /* Permite quebra de linha */
 }
 
-.carousel-item p {
+.carousel-item p, .experience-card p {
     font-size: 14px;
+    color: #333;
+    white-space: normal; /* Permite quebra de linha */
+    word-wrap: break-word; /* Quebra palavras longas */
+}
+
+/* Experiências */
+.experiences {
+    background: #000000;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.experiences h2 {
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.experiences-carousel {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.experience-card {
+    display: inline-block;
+    min-width: 300px;
+    max-width: 300px; /* Define a largura máxima */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+    overflow: hidden; /* Evita que o conteúdo ultrapasse os limites */
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.experience-card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    white-space: normal; /* Permite quebra de linha */
+}
+
+.experience-card p {
+    font-size: 14px;
+    color: #333;
+    white-space: normal; /* Permite quebra de linha */
+    word-wrap: break-word; /* Quebra palavras longas */
+}
+
+.experience-card .period {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
 }
 
 /* Sobre Mim */
 .about {
     padding: 60px 20px;
-    text-align: center;
     background-color: black;
     color: #f9f9f9;
 }
@@ -183,6 +267,33 @@ header {
     font-size: 32px;
     font-weight: 600;
     color: #f9f9f9;
+}
+
+.about-container {
+    display: flex; /* Alinha texto e imagem lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Espaçamento entre texto e imagem */
+    gap: 20px; /* Reduz a distância entre texto e imagem */
+}
+
+.about-text {
+    flex: 2; /* O texto ocupa mais espaço */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.about-image img {
+    width: 250px; /* Tamanho da imagem */
+    height: auto;
+    border-radius: 15px; /* Arredonda os cantos da imagem */
+    object-fit: cover; /* Mantém a proporção da imagem */
+    display: block; /* Remove espaçamento extra */
+    margin: 0 auto; /* Centraliza a imagem dentro da div */
+}
+
+.about-image {
+    flex: 1; /* Garante que a imagem ocupe menos espaço */
+    display: flex;
+    justify-content: right; /* Centraliza a imagem à direita */
 }
 
 /* Footer */
@@ -239,8 +350,19 @@ footer p {
         font-size: 28px;
     }
 
-    .carousel-item {
+    .carousel-item, .experience-card {
         min-width: 250px;
+        max-width: 250px; /* Ajusta a largura máxima */
+    }
+
+    .about-container {
+        flex-direction: column; /* Alinha texto e imagem em coluna */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .about-image {
+        justify-content: center; /* Centraliza a imagem */
+        margin-top: 20px; /* Adiciona espaço acima da imagem */
     }
 }
 
@@ -265,8 +387,9 @@ footer p {
         font-size: 24px;
     }
 
-    .carousel-item {
+    .carousel-item, .experience-card {
         min-width: 200px;
+        max-width: 200px; /* Ajusta a largura máxima */
         padding: 15px;
     }
 
@@ -359,9 +482,31 @@ header {
     color: #fff;
     text-align: cente;
     padding: 80px 20px;
-    height: 100vh; /* Ajusta a altura do header */
+    height: 100vh; /* Reverter a altura do header */
     display: flex;
     flex-direction: column;
-    justify-content:baseline;
+    justify-content: center;
     align-items: center;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+/* Reset de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Evitar overflow */
+body {
+    overflow-x: hidden;
+}
+
+/* Garantir que a largura dos elementos não exceda a largura da página */
+.container {
+    max-width: 100%;
+    overflow: hidden;
 }
