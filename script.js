@@ -143,14 +143,17 @@ document.addEventListener('DOMContentLoaded', function() {
         isDown = true;
         startX = e.pageX - carousel.offsetLeft;
         scrollLeft = carousel.scrollLeft;
+        stopAutoScroll();
     }
 
     function handleMouseLeave() {
         isDown = false;
+        startAutoScroll();
     }
 
     function handleMouseUp() {
         isDown = false;
+        startAutoScroll();
     }
 
     function handleMouseMove(e) {
@@ -166,11 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
     carousel.addEventListener('mouseup', handleMouseUp);
     carousel.addEventListener('mousemove', handleMouseMove);
 
-    experiencesCarousel.addEventListener('mousedown', handleMouseDownExperiences);
-    experiencesCarousel.addEventListener('mouseleave', handleMouseLeaveExperiences);
-    experiencesCarousel.addEventListener('mouseup', handleMouseUpExperiences);
-    experiencesCarousel.addEventListener('mousemove', handleMouseMoveExperiences);
-
     // Swipe navigation for mobile - Experiences Carousel
     let isDownExperiences = false;
     let startXExperiences;
@@ -180,14 +178,17 @@ document.addEventListener('DOMContentLoaded', function() {
         isDownExperiences = true;
         startXExperiences = e.pageX - experiencesCarousel.offsetLeft;
         scrollLeftExperiences = experiencesCarousel.scrollLeft;
+        stopAutoScrollExperiences();
     }
 
     function handleMouseLeaveExperiences() {
         isDownExperiences = false;
+        startAutoScrollExperiences();
     }
 
     function handleMouseUpExperiences() {
         isDownExperiences = false;
+        startAutoScrollExperiences();
     }
 
     function handleMouseMoveExperiences(e) {

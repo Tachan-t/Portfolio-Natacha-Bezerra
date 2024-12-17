@@ -100,6 +100,8 @@ header {
     .nav-links.open {
         right: 0; /* Exibe o menu ao ser ativado */
     }
+    
+
 }
 /* Hero Content */
 .hero-content {
@@ -193,27 +195,6 @@ header {
     color: #333;
     white-space: normal; /* Permite quebra de linha */
     word-wrap: break-word; /* Quebra palavras longas */
-}
-
-/* Botões de navegação */
-.carousel-nav, .experiences-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.carousel-nav.prev, .experiences-nav.prev {
-    left: 10px;
-}
-
-.carousel-nav.next, .experiences-nav.next {
-    right: 10px;
 }
 
 /* Experiências */
@@ -534,4 +515,23 @@ body {
 .container {
     max-width: 100%;
     overflow: hidden;
+}
+/* Projetos e Experiências - Scroll Horizontal em Telas Pequenas */
+@media (max-width: 768px) {
+    .carousel, .experiences-carousel {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Suaviza a rolagem no iOS */
+        scrollbar-width: none; /* Firefox */
+        white-space: nowrap;
+        touch-action: pan-x; /* Permite rolagem horizontal */
+    }
+
+    .carousel::-webkit-scrollbar, .experiences-carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari e Opera */
+    }
+
+    .carousel-item, .experience-card {
+        display: inline-block;
+        margin-right: 20px; /* Espaçamento entre os itens */
+    }
 }
