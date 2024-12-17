@@ -142,13 +142,13 @@ header {
     color: #ffffff;
 }
 
-.carousel {
+.carousel, .experiences-carousel {
     display: flex;
     overflow: hidden;
     white-space: nowrap;
     gap: 20px;
     padding: 20px;
-    
+    position: relative; /* Para posicionar os botões de navegação */
 }
 
 .carousel-item, .experience-card {
@@ -193,6 +193,27 @@ header {
     color: #333;
     white-space: normal; /* Permite quebra de linha */
     word-wrap: break-word; /* Quebra palavras longas */
+}
+
+/* Botões de navegação */
+.carousel-nav, .experiences-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-nav.prev, .experiences-nav.prev {
+    left: 10px;
+}
+
+.carousel-nav.next, .experiences-nav.next {
+    right: 10px;
 }
 
 /* Experiências */
@@ -353,6 +374,10 @@ footer p {
     .carousel-item, .experience-card {
         min-width: 250px;
         max-width: 250px; /* Ajusta a largura máxima */
+    }
+
+    .carousel-nav, .experiences-nav {
+        display: none; /* Esconde os botões de navegação no mobile */
     }
 
     .about-container {

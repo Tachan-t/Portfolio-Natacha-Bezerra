@@ -18,6 +18,8 @@ navLinksItems.forEach(link => {
 document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.carousel');
     const carouselItems = document.querySelectorAll('.carousel-item');
+    const carouselPrev = document.querySelector('.carousel-nav.prev');
+    const carouselNext = document.querySelector('.carousel-nav.next');
     let scrollAmount = 0;
     let autoScrollInterval;
 
@@ -49,8 +51,34 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('mouseleave', startAutoScroll);
     });
 
+    carouselPrev.addEventListener('click', () => {
+        scrollAmount -= carousel.clientWidth;
+        if (scrollAmount < 0) {
+            scrollAmount = carousel.scrollWidth - carousel.clientWidth;
+        }
+        carousel.scrollTo({
+            top: 0,
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    carouselNext.addEventListener('click', () => {
+        scrollAmount += carousel.clientWidth;
+        if (scrollAmount >= carousel.scrollWidth) {
+            scrollAmount = 0;
+        }
+        carousel.scrollTo({
+            top: 0,
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
     const experiencesCarousel = document.querySelector('.experiences-carousel');
     const experienceCards = document.querySelectorAll('.experience-card');
+    const experiencesPrev = document.querySelector('.experiences-nav.prev');
+    const experiencesNext = document.querySelector('.experiences-nav.next');
     let experiencesScrollAmount = 0;
     let experiencesAutoScrollInterval;
 
@@ -81,4 +109,65 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('mouseenter', stopAutoScrollExperiences);
         card.addEventListener('mouseleave', startAutoScrollExperiences);
     });
+
+    experiencesPrev.addEventListener('click', () => {
+        experiencesScrollAmount -= experiencesCarousel.clientWidth;
+        if (experiencesScrollAmount < 0) {
+            experiencesScrollAmount = experiencesCarousel.scrollWidth - experiencesCarousel.clientWidth;
+        }
+        experiencesCarousel.scrollTo({
+            top: 0,
+            left: experiencesScrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    experiencesNext.addEventListener('click', () => {
+        experiencesScrollAmount += experiencesCarousel.clientWidth;
+        if (experiencesScrollAmount >= experiencesCarousel.scrollWidth) {
+            experiencesScrollAmount = 0;
+        }
+        experiencesCarousel.scrollTo({
+            top: 0,
+            left: experiencesScrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    // Swipe navigation for mobile
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    function handleMouseDown(e) {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+    }
+
+    function handleMouseLeave() {
+        isDown = false;
+    }
+
+    function handleMouseUp() {
+        isDown = false;
+    }
+
+    function handleMouseMove(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 3; // Adjust scroll speed
+        carousel.scrollLeft = scrollLeft - walk;
+    }
+
+    carousel.addEventListener('mousedown', handleMouseDown);
+    carousel.addEventListener('mouseleave', handleMouseLeave);
+    carousel.addEventListener('mouseup', handleMouseUp);
+    carousel.addEventListener('mousemove', handleMouseMove);
+
+    experiencesCarousel.addEventListener('mousedown', handleMouseDown);
+    experiencesCarousel.addEventListener('mouseleave', handleMouseLeave);
+    experiencesCarousel.addEventListener('mouseup', handleMouseUp);
+    experiencesCarousel.addEventListener('mousemove', handleMouseMove);
 });
