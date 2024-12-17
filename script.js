@@ -207,4 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     experiencesCarousel.addEventListener('touchstart', (e) => handleMouseDownExperiences(e.touches[0]));
     experiencesCarousel.addEventListener('touchend', handleMouseUpExperiences);
     experiencesCarousel.addEventListener('touchmove', (e) => handleMouseMoveExperiences(e.touches[0]));
+
+    // Ensure auto-scroll continues on mobile after touch interaction
+    experiencesCarousel.addEventListener('touchend', startAutoScrollExperiences);
 });
