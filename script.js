@@ -166,8 +166,44 @@ document.addEventListener('DOMContentLoaded', function() {
     carousel.addEventListener('mouseup', handleMouseUp);
     carousel.addEventListener('mousemove', handleMouseMove);
 
-    experiencesCarousel.addEventListener('mousedown', handleMouseDown);
-    experiencesCarousel.addEventListener('mouseleave', handleMouseLeave);
-    experiencesCarousel.addEventListener('mouseup', handleMouseUp);
-    experiencesCarousel.addEventListener('mousemove', handleMouseMove);
+    experiencesCarousel.addEventListener('mousedown', handleMouseDownExperiences);
+    experiencesCarousel.addEventListener('mouseleave', handleMouseLeaveExperiences);
+    experiencesCarousel.addEventListener('mouseup', handleMouseUpExperiences);
+    experiencesCarousel.addEventListener('mousemove', handleMouseMoveExperiences);
+
+    // Swipe navigation for mobile - Experiences Carousel
+    let isDownExperiences = false;
+    let startXExperiences;
+    let scrollLeftExperiences;
+
+    function handleMouseDownExperiences(e) {
+        isDownExperiences = true;
+        startXExperiences = e.pageX - experiencesCarousel.offsetLeft;
+        scrollLeftExperiences = experiencesCarousel.scrollLeft;
+    }
+
+    function handleMouseLeaveExperiences() {
+        isDownExperiences = false;
+    }
+
+    function handleMouseUpExperiences() {
+        isDownExperiences = false;
+    }
+
+    function handleMouseMoveExperiences(e) {
+        if (!isDownExperiences) return;
+        e.preventDefault();
+        const x = e.pageX - experiencesCarousel.offsetLeft;
+        const walk = (x - startXExperiences) * 3; // Adjust scroll speed
+        experiencesCarousel.scrollLeft = scrollLeftExperiences - walk;
+    }
+
+    experiencesCarousel.addEventListener('mousedown', handleMouseDownExperiences);
+    experiencesCarousel.addEventListener('mouseleave', handleMouseLeaveExperiences);
+    experiencesCarousel.addEventListener('mouseup', handleMouseUpExperiences);
+    experiencesCarousel.addEventListener('mousemove', handleMouseMoveExperiences);
+
+    experiencesCarousel.addEventListener('touchstart', (e) => handleMouseDownExperiences(e.touches[0]));
+    experiencesCarousel.addEventListener('touchend', handleMouseUpExperiences);
+    experiencesCarousel.addEventListener('touchmove', (e) => handleMouseMoveExperiences(e.touches[0]));
 });
