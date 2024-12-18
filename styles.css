@@ -72,7 +72,7 @@ header {
     z-index: 10;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 832px) {
     .menu-toggle {
         display: block; /* Mostra o botão apenas no mobile */
     }
@@ -394,8 +394,8 @@ footer p {
     }
 
     .carousel-item, .experience-card {
-        min-width: 200px;
-        max-width: 200px; /* Ajusta a largura máxima */
+        min-width: 250px;
+        max-width: 250px; /* Ajusta a largura máxima */
         padding: 15px;
     }
 
@@ -517,7 +517,7 @@ body {
     overflow: hidden;
 }
 /* Projetos e Experiências - Scroll Horizontal em Telas Pequenas */
-@media (max-width: 768px) {
+@media (max-width: 832px) {
     .carousel, .experiences-carousel {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch; /* Suaviza a rolagem no iOS */
