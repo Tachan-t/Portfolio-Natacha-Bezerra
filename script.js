@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         carouselItems.forEach(item => {
             item.addEventListener('mouseenter', stopAutoScroll);
             item.addEventListener('mouseleave', startAutoScroll);
+            item.addEventListener('click', stopAutoScroll); // Para o auto-scroll ao clicar em um card
         });
 
         carouselNavs.forEach(nav => {
