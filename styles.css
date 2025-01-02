@@ -399,16 +399,102 @@ header {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Evitar overflow horizontal */
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .projects h2, .about h2, .skills h2 {
+        font-size: 28px;
+    }
+
+    .carousel-item, .experience-card {
+        min-width: 250px;
+        max-width: 250px; /* Ajusta a largura máxima */
+    }
+
+    .carousel-nav, .experiences-nav {
+        display: none; /* Esconde os botões de navegação no mobile */
+    }
+
+    .about-container {
+        flex-direction: column; /* Alinha texto e imagem em coluna */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .about-image {
+        justify-content: center; /* Centraliza a imagem */
+        margin-top: 20px; /* Adiciona espaço acima da imagem */
+    }
+
     .skills h2 {
         font-size: 28px;
     }
 
-    .skill-name {
-        font-size: 16px;
+    .skill-name, .skill-level {
+        font-size: 16px; /* Diminuir o tamanho do texto */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Evitar overflow horizontal */
     }
 
-    .skill-level {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
         font-size: 14px;
+    }
+
+    .projects h2, .about h2, .skills h2 {
+        font-size: 24px;
+    }
+
+    .carousel-item, .experience-card {
+        min-width: 250px;
+        max-width: 250px; /* Ajusta a largura máxima */
+        padding: 15px;
+    }
+
+    .contact-links img {
+        width: 30px;
+        height: 30px;
+    }
+
+    footer p {
+        font-size: 12px;
     }
 }
 

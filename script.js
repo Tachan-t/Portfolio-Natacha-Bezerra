@@ -16,9 +16,7 @@ navLinksItems.forEach(link => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const carousels = document.querySelectorAll('.carousel, .experiences-carousel, .projects-carousel');
-    const carouselItems = document.querySelectorAll('.carousel-item, .experience-card, .project-card');
-    const carouselNavs = document.querySelectorAll('.carousel-nav, .experiences-nav, .projects-nav');
+    const carousels = document.querySelectorAll('.carousel, .experiences-carousel');
     let scrollAmounts = {};
     let autoScrollIntervals = {};
 
@@ -48,12 +46,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         startAutoScroll();
 
+        carousel.addEventListener('mouseenter', stopAutoScroll);
+        carousel.addEventListener('mouseleave', startAutoScroll);
+
+        const carouselItems = carousel.querySelectorAll('.carousel-item, .experience-card');
         carouselItems.forEach(item => {
-            item.addEventListener('mouseenter', stopAutoScroll);
-            item.addEventListener('mouseleave', startAutoScroll);
             item.addEventListener('click', stopAutoScroll); // Para o auto-scroll ao clicar em um card
         });
 
+        const carouselNavs = carousel.querySelectorAll('.carousel-nav, .experiences-nav');
         carouselNavs.forEach(nav => {
             nav.addEventListener('click', () => {
                 if (nav.classList.contains('prev')) {
