@@ -23,14 +23,13 @@ header {
 /* Ajuste da Navbar */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Logo à esquerda e menu à direita */
-    align-items:center;
-    padding: 20px; /* Remover margem horizontal ajustada */
+    justify-content: center; /* Centralizar o menu */
+    align-items: center;
+    padding: 20px;
     position: absolute;
-    top: 0; /* Ajustar para o topo */
-    left: 100;
-    width: 100%; /* Ajustar a largura para 100% */
-    z-index: 10; /* Garante que a navbar fique acima do vídeo */
+    top: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 /* Logo */
@@ -374,6 +373,45 @@ header {
     }
 }
 
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+}
+
+.skill-name {
+    font-size: 18px;
+    color: #fff;
+}
+
+.skill-level {
+    font-size: 16px;
+    color: #ff6f61;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .skills h2 {
+        font-size: 28px;
+    }
+
+    .skill-name {
+        font-size: 16px;
+    }
+
+    .skill-level {
+        font-size: 14px;
+    }
+}
+
 /* Footer */
 footer {
     background: #000000;
@@ -424,7 +462,7 @@ footer p {
         font-size: 16px;
     }
 
-    .projects h2, .about h2 {
+    .projects h2, .about h2, .skills h2 {
         font-size: 28px;
     }
 
@@ -451,12 +489,8 @@ footer p {
         font-size: 28px;
     }
 
-    .skill h3 {
+    .skill-name, .skill-level {
         font-size: 16px; /* Diminuir o tamanho do texto */
-    }
-
-    .progress .skill-name {
-        font-size: 12px;
     }
 }
 
@@ -477,7 +511,7 @@ footer p {
         font-size: 14px;
     }
 
-    .projects h2, .about h2 {
+    .projects h2, .about h2, .skills h2 {
         font-size: 24px;
     }
 
