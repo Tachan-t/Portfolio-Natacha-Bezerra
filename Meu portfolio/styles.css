@@ -1,0 +1,625 @@
+/* Estilo base */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), 
+    url('images/hero-background.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    height: 100vh; /* Reverter a altura do header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajuste da Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Logo à esquerda e menu à direita */
+    align-items:center;
+    padding: 20px; /* Remover margem horizontal ajustada */
+    position: absolute;
+    top: 0; /* Ajustar para o topo */
+    left: 100;
+    width: 100%; /* Ajustar a largura para 100% */
+    z-index: 10; /* Garante que a navbar fique acima do vídeo */
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Links do Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+.nav-links a:hover {
+    color: #ff6f61;
+}
+
+/* Menu lateral - Mobile */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10;
+}
+
+@media (max-width: 832px) {
+    .menu-toggle {
+        display: block; /* Mostra o botão apenas no mobile */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Esconde o menu fora da tela */
+        height: 100vh;
+        width: 250px;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        gap: 40px;
+        padding: 60px 20px;
+        transition: right 0.3s ease-in-out;
+        z-index: 9;
+    }
+
+    .nav-links a {
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .nav-links.open {
+        right: 0; /* Exibe o menu ao ser ativado */
+    }
+    
+
+}
+/* Hero Content */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 5; /* Certifica que o texto está acima do vídeo */
+}
+
+/* Estilização do Título */
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Projetos */
+.projects {
+    background: #000000;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.projects h2 {
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.carousel, .experiences-carousel {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    gap: 20px;
+    padding: 20px;
+    position: relative; /* Para posicionar os botões de navegação */
+}
+
+.carousel-item, .experience-card {
+    display: inline-block;
+    min-width: 300px;
+    max-width: 300px; /* Define a largura máxima */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+    overflow: hidden; /* Evita que o conteúdo ultrapasse os limites */
+}
+
+.carousel-item:hover, .experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item img, .experience-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    filter: grayscale(100%); /* Imagem apagada */
+    transition: filter 0.3s ease; /* Transição suave */
+}
+
+.carousel-item img:hover, .experience-card img:hover {
+    filter: grayscale(0%); /* Cor normal ao passar o mouse */
+}
+
+.carousel-item h3, .experience-card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    white-space: normal; /* Permite quebra de linha */
+}
+
+.carousel-item p, .experience-card p {
+    font-size: 14px;
+    color: #333;
+    white-space: normal; /* Permite quebra de linha */
+    word-wrap: break-word; /* Quebra palavras longas */
+}
+
+/* Experiências */
+.experiences {
+    background: #000000;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.experiences h2 {
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.experiences-carousel {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.experience-card {
+    display: inline-block;
+    min-width: 300px;
+    max-width: 300px; /* Define a largura máxima */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+    overflow: hidden; /* Evita que o conteúdo ultrapasse os limites */
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.experience-card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    white-space: normal; /* Permite quebra de linha */
+}
+
+.experience-card p {
+    font-size: 14px;
+    color: #333;
+    white-space: normal; /* Permite quebra de linha */
+    word-wrap: break-word; /* Quebra palavras longas */
+}
+
+.experience-card .period {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Sobre Mim */
+.about {
+    padding: 60px 20px;
+    background-color: black;
+    color: #f9f9f9;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 600;
+    color: #f9f9f9;
+}
+
+.about-container {
+    display: flex; /* Alinha texto e imagem lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Espaçamento entre texto e imagem */
+    gap: 20px; /* Reduz a distância entre texto e imagem */
+}
+
+.about-text {
+    flex: 2; /* O texto ocupa mais espaço */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.about-image img {
+    width: 250px; /* Tamanho da imagem */
+    height: auto;
+    border-radius: 15px; /* Arredonda os cantos da imagem */
+    object-fit: cover; /* Mantém a proporção da imagem */
+    display: block; /* Remove espaçamento extra */
+    margin: 0 auto; /* Centraliza a imagem dentro da div */
+}
+
+.about-image {
+    flex: 1; /* Garante que a imagem ocupe menos espaço */
+    display: flex;
+    justify-content: right; /* Centraliza a imagem à direita */
+}
+
+/* Seção de Habilidades */
+.skills {
+    padding: 10px 10px;
+    background-color: #000000; /* Fundo escuro */
+    text-align: left;
+}
+
+.skills h2 {
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff; /* Texto branco */
+}
+
+.skill {
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 70%;
+    background-color: #000000; /* Fundo da barra */
+    border-radius: 15px;
+    overflow: hidden;
+    height: 15px;
+    position: left;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background-color: #ff6f61; /* Cor sólida */
+    border-radius: 15px;
+    transition: width 1s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress .skill-name {
+    color: #fff; /* Texto branco */
+    font-size: 14px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(255, 111, 97, 0.5); /* Efeito de brilho */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.progress:hover::after {
+    opacity: 1;
+    animation: glow 1s linear infinite;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 111, 97, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+    }
+}
+
+/* Footer */
+footer {
+    background: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-links a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.contact-links a:hover img {
+    transform: scale(1.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .projects h2, .about h2 {
+        font-size: 28px;
+    }
+
+    .carousel-item, .experience-card {
+        min-width: 250px;
+        max-width: 250px; /* Ajusta a largura máxima */
+    }
+
+    .carousel-nav, .experiences-nav {
+        display: none; /* Esconde os botões de navegação no mobile */
+    }
+
+    .about-container {
+        flex-direction: column; /* Alinha texto e imagem em coluna */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .about-image {
+        justify-content: center; /* Centraliza a imagem */
+        margin-top: 20px; /* Adiciona espaço acima da imagem */
+    }
+
+    .skills h2 {
+        font-size: 28px;
+    }
+
+    .skill h3 {
+        font-size: 16px; /* Diminuir o tamanho do texto */
+    }
+
+    .progress .skill-name {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .projects h2, .about h2 {
+        font-size: 24px;
+    }
+
+    .carousel-item, .experience-card {
+        min-width: 250px;
+        max-width: 250px; /* Ajusta a largura máxima */
+        padding: 15px;
+    }
+
+    .contact-links img {
+        width: 30px;
+        height: 30px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+
+/* Menu lateral - Mobile */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .nav-links {
+        display: none; /* Esconde o menu por padrão */
+        position: fixed;
+        top: 20px; /* Distância do topo */
+        right: 20px; /* Distância da lateral direita */
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 200px; /* Largura do menu */
+        border-radius: 10px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    .nav-links.open {
+        display: flex; /* Exibe o menu quando ativado */
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .nav-links a {
+        color: #fff;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #ff6f61;
+    }
+}
+/* Video container */
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Garante que o vídeo fique atrás do conteúdo */
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz o vídeo ocupar toda a área sem distorção */
+}
+
+/* Ajuste para garantir o posicionamento do conteúdo acima do vídeo */
+header {
+    position: relative;
+    color: #fff;
+    text-align: cente;
+    padding: 80px 20px;
+    height: 100vh; /* Reverter a altura do header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+/* Reset de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Evitar overflow */
+body {
+    overflow-x: hidden;
+}
+
+/* Garantir que a largura dos elementos não exceda a largura da página */
+.container {
+    max-width: 100%;
+    overflow: hidden;
+}
+/* Projetos e Experiências - Scroll Horizontal em Telas Pequenas */
+@media (max-width: 832px) {
+    .carousel, .experiences-carousel {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Suaviza a rolagem no iOS */
+        scrollbar-width: none; /* Firefox */
+        white-space: nowrap;
+        touch-action: pan-x; /* Permite rolagem horizontal */
+    }
+
+    .carousel::-webkit-scrollbar, .experiences-carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari e Opera */
+    }
+
+    .carousel-item, .experience-card {
+        display: inline-block;
+        margin-right: 20px; /* Espaçamento entre os itens */
+    }
+}
