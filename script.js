@@ -16,9 +16,9 @@ navLinksItems.forEach(link => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const carousels = document.querySelectorAll('.carousel, .experiences-carousel');
-    const carouselItems = document.querySelectorAll('.carousel-item, .experience-card');
-    const carouselNavs = document.querySelectorAll('.carousel-nav, .experiences-nav');
+    const carousels = document.querySelectorAll('.carousel, .experiences-carousel, .projects-carousel');
+    const carouselItems = document.querySelectorAll('.carousel-item, .experience-card, .project-card');
+    const carouselNavs = document.querySelectorAll('.carousel-nav, .experiences-nav, .projects-nav');
     let scrollAmounts = {};
     let autoScrollIntervals = {};
 
@@ -113,6 +113,13 @@ document.addEventListener('DOMContentLoaded', function() {
         carousel.addEventListener('touchstart', (e) => handleMouseDown(e.touches[0]));
         carousel.addEventListener('touchend', handleMouseUp);
         carousel.addEventListener('touchmove', (e) => handleMouseMove(e.touches[0]));
+    });
+
+    // Inicialização das barras de progresso
+    const progressBars = document.querySelectorAll('.progress');
+    progressBars.forEach(bar => {
+        const percent = bar.getAttribute('data-percent');
+        bar.style.width = percent + '%';
     });
 });
 
