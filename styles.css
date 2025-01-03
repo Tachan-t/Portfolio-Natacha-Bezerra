@@ -458,6 +458,7 @@ header {
         width: 100%; /* Botão ocupa toda a largura disponível */
         text-align: center;
         padding: 15px 0; /* Ajusta o padding para melhor visualização */
+        display: block; /* Garante que o botão seja exibido como bloco */
     }
 }
 
@@ -507,6 +508,7 @@ header {
         width: 100%; /* Botão ocupa toda a largura disponível */
         text-align: center;
         padding: 15px 0; /* Ajusta o padding para melhor visualização */
+        display: block; /* Garante que o botão seja exibido como bloco */
     }
 }
 
@@ -834,6 +836,7 @@ body {
         width: 100%; /* Botão ocupa toda a largura disponível */
         text-align: center;
         padding: 15px 0; /* Ajusta o padding para melhor visualização */
+        display: block; /* Garante que o botão seja exibido como bloco */
     }
 }
 
@@ -883,5 +886,6 @@ body {
         width: 100%; /* Botão ocupa toda a largura disponível */
         text-align: center;
         padding: 15px 0; /* Ajusta o padding para melhor visualização */
+        display: block; /* Garante que o botão seja exibido como bloco */
     }
 }
